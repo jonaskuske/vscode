@@ -397,6 +397,7 @@ fn detect_installed_program(_log: &log::Logger, quality: Quality) -> io::Result<
 // Looks for the given binary name in the PATH, returning all candidate matches.
 // Based on https://github.dev/microsoft/vscode-js-debug/blob/7594d05518df6700df51771895fcad0ddc7f92f9/src/common/pathUtils.ts#L15
 #[cfg(target_os = "linux")]
+#[cfg(target_os = "android")]
 fn detect_installed_program(log: &log::Logger, quality: Quality) -> io::Result<Vec<PathBuf>> {
 	let path = match std::env::var("PATH") {
 		Ok(p) => p,
