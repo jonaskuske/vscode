@@ -45,7 +45,8 @@ use crate::{
 #[cfg(not(target_os = "android"))]
 use crate::{
 	tunnels::{create_service_manager}
-}
+};
+
 use crate::{
 	singleton::{acquire_singleton, SingletonConnection},
 	tunnels::{
