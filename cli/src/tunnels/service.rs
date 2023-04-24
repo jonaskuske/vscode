@@ -54,6 +54,7 @@ pub type ServiceManagerImpl = super::service_linux::SystemdService;
 #[cfg(target_os = "macos")]
 pub type ServiceManagerImpl = super::service_macos::LaunchdService;
 
+#[cfg(not(target_os = "android"))]
 #[allow(unreachable_code)]
 #[allow(unused_variables)]
 pub fn create_service_manager(log: log::Logger, paths: &LauncherPaths) -> ServiceManagerImpl {
