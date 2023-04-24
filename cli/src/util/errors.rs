@@ -391,6 +391,15 @@ impl std::fmt::Display for MissingHomeDirectory {
 }
 
 #[derive(Debug)]
+pub struct NotImplemented();
+
+impl std::fmt::Display for NotImplemented {
+	fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+		write!(f, "this feature is not implemented: {}", self.0)
+	}
+}
+
+#[derive(Debug)]
 pub struct OAuthError {
 	pub error: String,
 	pub error_description: Option<String>,
