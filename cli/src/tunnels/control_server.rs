@@ -699,6 +699,8 @@ fn handle_get_env() -> Result<GetEnvResponse, AnyError> {
 		os_platform: "win32",
 		#[cfg(target_os = "linux")]
 		os_platform: "linux",
+		#[cfg(target_os = "android")]
+		os_platform: "linux",
 		#[cfg(target_os = "macos")]
 		os_platform: "darwin",
 	})
