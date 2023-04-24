@@ -27,7 +27,7 @@ use crate::{
 	state::LauncherPaths,
 	tunnels::{
 		code_server::CodeServerArgs,
-		create_service_manager, dev_tunnels, legal,
+		dev_tunnels, legal,
 		paths::get_all_servers,
 		protocol,
 		shutdown_signal::ShutdownRequest,
@@ -42,6 +42,10 @@ use crate::{
 		prereqs::PreReqChecker,
 	},
 };
+#[cfg(not(target_os = "android"))]
+use crate::{
+	tunnels::{create_service_manager}
+}
 use crate::{
 	singleton::{acquire_singleton, SingletonConnection},
 	tunnels::{
@@ -109,6 +113,15 @@ impl ServiceContainer for TunnelServiceContainer {
 	}
 }
 
+#[cfg(target_os = "android")]
+pub async fn service(
+	ctx: CommandContext,
+	service_args: TunnelServiceSubCommands,
+) -> Result<i32, AnyError> {
+	Err(wrap(e, "installing service not implemented on android"))
+}
+
+#[cfg(not(target_os = "android"))]
 pub async fn service(
 	ctx: CommandContext,
 	service_args: TunnelServiceSubCommands,
