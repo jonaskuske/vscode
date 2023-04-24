@@ -391,7 +391,7 @@ impl std::fmt::Display for MissingHomeDirectory {
 }
 
 #[derive(Debug)]
-pub struct NotImplemented();
+pub struct NotImplemented(pub String);
 
 impl std::fmt::Display for NotImplemented {
 	fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
@@ -519,6 +519,7 @@ makeAnyError!(
 	WindowsNeedsElevation,
 	UpdatesNotConfigured,
 	CorruptDownload,
+	NotImplemented,
 	MissingHomeDirectory,
 	OAuthError,
 	InvalidRpcDataError,

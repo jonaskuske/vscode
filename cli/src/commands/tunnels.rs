@@ -38,7 +38,7 @@ use crate::{
 	},
 	util::{
 		app_lock::AppMutex,
-		errors::{wrap, AnyError, CodeError},
+		errors::{wrap, AnyError, CodeError, NotImplemented},
 		prereqs::PreReqChecker,
 	},
 };
