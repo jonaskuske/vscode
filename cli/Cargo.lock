@@ -1066,9 +1066,8 @@ dependencies = [
 
 [[package]]
 name = "keyring"
-version = "1.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "38fb8399ddcabfccb274577a8d90f0653e0b5b5977797c1c8834ad09839a10e5"
+version = "1.2.1"
+source = "git+https://github.com/jonaskuske/keyring-rs?branch=tmp#81be676e5fa51f2e9c509242571d88f7e7c9b85d"
 dependencies = [
  "byteorder",
  "secret-service",
@@ -2429,7 +2428,7 @@ dependencies = [
 [[package]]
 name = "tunnels"
 version = "0.1.0"
-source = "git+https://github.com/microsoft/dev-tunnels?rev=730aa86f8ccd9e2dd4541693fbce763357da93f4#730aa86f8ccd9e2dd4541693fbce763357da93f4"
+source = "git+https://github.com/jonaskuske/dev-tunnels?branch=tmp#d722f01458af4e1161564aa5dea9c0ab67dad266"
 dependencies = [
  "async-trait",
  "chrono",
