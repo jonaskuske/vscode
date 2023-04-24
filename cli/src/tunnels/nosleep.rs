@@ -21,7 +21,7 @@ pub struct NoOpSleepInhibitor();
 
 #[allow(dead_code)]
 impl NoOpSleepInhibitor {
-	pub fn new() -> std::io::Result<Self> {
+	pub async fn new() -> std::io::Result<Self> {
 		Ok(NoOpSleepInhibitor())
 	}
 }
