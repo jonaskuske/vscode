@@ -39,7 +39,7 @@ impl PreReqChecker {
 		PreReqChecker {}
 	}
 
-	#[cfg(not(target_os = "linux"))]
+	#[cfg(not(any(target_os = "linux", target_os = "android")))]
 	pub async fn verify(&self) -> Result<Platform, CodeError> {
 		Platform::env_default().ok_or_else(|| {
 			CodeError::UnsupportedPlatform(format!(
@@ -48,6 +48,17 @@ impl PreReqChecker {
 				std::env::consts::ARCH
 			))
 		})
+	}
+
+	#[cfg(target_os = "android")]
+	pub async fn verify(&self) -> Result<Platform, CodeError> {
+		return Ok(if cfg!(target_arch = "x86_64") {
+			Platform::LinuxX64
+		} else if cfg!(target_arch = "arm") {
+			Platform::LinuxARM32
+		} else {
+			Platform::LinuxARM64
+		});
 	}
 
 	#[cfg(target_os = "linux")]
