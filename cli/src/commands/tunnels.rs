@@ -119,7 +119,7 @@ pub async fn service(
 	ctx: CommandContext,
 	service_args: TunnelServiceSubCommands,
 ) -> Result<i32, AnyError> {
-	Err(NotImplemented("installing service on android").into())
+	Err(NotImplemented("installing service on android".to_string()).into())
 }
 
 #[cfg(not(target_os = "android"))]
