@@ -36,6 +36,10 @@ mod wsl_server;
 pub use control_server::{serve, Next};
 pub use nosleep::SleepInhibitor;
 pub use service::{
-	create_service_manager, ServiceContainer, ServiceManager, SERVICE_LOG_FILE_NAME,
+	ServiceContainer, ServiceManager, SERVICE_LOG_FILE_NAME,
+};
+#[cfg(not(target_os = "android"))]
+pub use service::{
+	create_service_manager,
 };
 pub use wsl_server::serve_wsl;
